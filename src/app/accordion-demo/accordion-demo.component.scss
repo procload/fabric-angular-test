@@ -1,0 +1,191 @@
+.accordion-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #323130;
+  }
+}
+
+.test-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #323130;
+    font-size: 18px;
+  }
+}
+
+.controls {
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  
+  label {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  select, input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 6px 12px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #106ebe;
+    }
+  }
+}
+
+// Accordion menu specific styles
+fabric-accordion-menu {
+  display: block;
+  margin-top: 20px;
+  border: 1px solid #edebe9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+fabric-accordion-menu-item {
+  display: block;
+  
+  .item-controls {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #edebe9;
+    
+    button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  }
+  
+  span[slot="heading"] {
+    font-weight: 600;
+  }
+}
+
+.event-log {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-family: monospace;
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+}
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.boolean-test {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  
+  fabric-filter-pill {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    align-self: flex-start;
+  }
+}
+
+.status {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  pre {
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+  }
+}
+
+// Carousel styles
+.carousel-item {
+  min-width: 200px;
+  min-height: 150px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin: 5px;
+  background-color: white;
+}
+
+.carousel-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel-card h4 {
+  margin-top: 0;
+  color: #0078d4;
+}
+
+.carousel-info {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.carousel-status {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+// Make sure the carousel items have proper spacing
+fabric-carousel {
+  display: block;
+  margin: 20px 0;
+  --gap-width: 10px;
+} 

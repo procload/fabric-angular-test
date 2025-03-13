@@ -1,0 +1,41 @@
+{
+  "name": "@fabric-msft/fabric-angular",
+  "version": "2.2.1-beta.3",
+  "author": "dcsuxefabux@microsoft.com",
+  "description": "Angular Fabric web component wrappers",
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/core": "*"
+  },
+  "dependencies": {
+    "@fabric-msft/fabric-web": "2.1.1-beta.3",
+    "@fluentui/web-components": "3.0.0-beta.79",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "angular",
+    "fabric",
+    "web components"
+  ],
+  "license": "MIT",
+  "module": "fesm2015/fabric-msft-fabric-angular.mjs",
+  "es2020": "fesm2020/fabric-msft-fabric-angular.mjs",
+  "esm2020": "esm2020/fabric-msft-fabric-angular.mjs",
+  "fesm2020": "fesm2020/fabric-msft-fabric-angular.mjs",
+  "fesm2015": "fesm2015/fabric-msft-fabric-angular.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/fabric-msft-fabric-angular.mjs",
+      "es2020": "./fesm2020/fabric-msft-fabric-angular.mjs",
+      "es2015": "./fesm2015/fabric-msft-fabric-angular.mjs",
+      "node": "./fesm2015/fabric-msft-fabric-angular.mjs",
+      "default": "./fesm2020/fabric-msft-fabric-angular.mjs"
+    }
+  }
+}

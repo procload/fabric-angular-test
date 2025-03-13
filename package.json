@@ -18,8 +18,11 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
-    "@fabric-msft/fabric-angular": "0.1.5-beta",
-    "@fabric-msft/fluent-angular": "0.1.4-beta",
+    "@fabric-msft/theme": "1.0.0-beta",
+    "@fabric-msft/fabric-angular": "file:fabric-angular.tgz",
+    "@fabric-msft/fluent-angular": "file:fluent-angular.tgz",
+    "@fluentui/web-components": "3.0.0-beta.79",
+    "@microsoft/fast-element": "2.0.0-beta.26",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

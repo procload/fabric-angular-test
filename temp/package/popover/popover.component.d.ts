@@ -1,0 +1,40 @@
+import { ElementRef, EventEmitter, NgZone, Renderer2, OnInit, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
+import { PopoverSize, PopoverMode, PositioningShorthandValues, PopoverRepositionMode } from '@fabric-msft/fabric-web';
+import * as i0 from "@angular/core";
+export declare class PopoverComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+    private el;
+    private renderer;
+    private ngZone;
+    zone: NgZone;
+    beak: boolean;
+    nonClickable: boolean;
+    size: PopoverSize;
+    mode: PopoverMode;
+    position: PositioningShorthandValues;
+    targetId: string;
+    repositionMode: PopoverRepositionMode;
+    open: boolean;
+    overflowBoundarySelector: string;
+    ariaLabel: string;
+    transitionDuration: number;
+    transitionDelay: number;
+    hide: EventEmitter<any>;
+    show: EventEmitter<any>;
+    toggle: EventEmitter<any>;
+    mouseEnter: EventEmitter<any>;
+    mouseLeave: EventEmitter<any>;
+    constructor(el: ElementRef, renderer: Renderer2, ngZone: NgZone);
+    private updateComponentProperties;
+    private handleHide;
+    private handleShow;
+    private handleToggle;
+    private handleMouseEnter;
+    private handleMouseLeave;
+    ngOnInit(): void;
+    ngOnChanges(): void;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PopoverComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PopoverComponent, "fabric-popover", never, { "beak": "beak"; "nonClickable": "nonClickable"; "size": "size"; "mode": "mode"; "position": "position"; "targetId": "targetId"; "repositionMode": "repositionMode"; "open": "open"; "overflowBoundarySelector": "overflowBoundarySelector"; "ariaLabel": "ariaLabel"; "transitionDuration": "transitionDuration"; "transitionDelay": "transitionDelay"; }, { "hide": "hide"; "show": "show"; "toggle": "toggle"; "mouseEnter": "mouseEnter"; "mouseLeave": "mouseLeave"; }, never, ["*"], false, never>;
+}
+//# sourceMappingURL=popover.component.d.ts.map

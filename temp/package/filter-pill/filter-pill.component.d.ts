@@ -1,0 +1,45 @@
+import { ElementRef, EventEmitter, NgZone, Renderer2, OnInit, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
+import { ButtonAppearance, ButtonShape, ButtonSize, ButtonFormTarget, ButtonType } from '@fabric-msft/fabric-web';
+import * as i0 from "@angular/core";
+export declare class FilterPillComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+    private el;
+    private renderer;
+    private ngZone;
+    zone: NgZone;
+    role: string;
+    appearance: ButtonAppearance | undefined;
+    shape: ButtonShape | undefined;
+    size: ButtonSize | undefined;
+    iconOnly: boolean;
+    pressed: boolean;
+    mixed: boolean;
+    ariaPressed: string;
+    ariaLabel: string;
+    autofocus: boolean;
+    disabled: boolean;
+    disabledFocusable: boolean;
+    formaction: string | undefined;
+    form: string | undefined;
+    formenctype: string | undefined;
+    formmethod: string | undefined;
+    formnovalidate: boolean | undefined;
+    formtarget: ButtonFormTarget | undefined;
+    name: string | undefined;
+    type: ButtonType;
+    value: string | undefined;
+    pressedchange: EventEmitter<any>;
+    click: EventEmitter<any>;
+    keypress: EventEmitter<any>;
+    constructor(el: ElementRef, renderer: Renderer2, ngZone: NgZone);
+    private updateComponentProperties;
+    private handlePressedchange;
+    private handleClick;
+    private handleKeypress;
+    ngOnInit(): void;
+    ngOnChanges(): void;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<FilterPillComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<FilterPillComponent, "fabric-filter-pill", never, { "role": "role"; "appearance": "appearance"; "shape": "shape"; "size": "size"; "iconOnly": "iconOnly"; "pressed": "pressed"; "mixed": "mixed"; "ariaPressed": "ariaPressed"; "ariaLabel": "ariaLabel"; "autofocus": "autofocus"; "disabled": "disabled"; "disabledFocusable": "disabledFocusable"; "formaction": "formaction"; "form": "form"; "formenctype": "formenctype"; "formmethod": "formmethod"; "formnovalidate": "formnovalidate"; "formtarget": "formtarget"; "name": "name"; "type": "type"; "value": "value"; }, { "pressedchange": "pressedchange"; "click": "click"; "keypress": "keypress"; }, never, ["*"], false, never>;
+}
+//# sourceMappingURL=filter-pill.component.d.ts.map
