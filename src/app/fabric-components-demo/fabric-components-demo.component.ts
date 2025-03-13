@@ -1,8 +1,12 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FabricWrappersModule } from '@fabric-msft/fabric-angular';
+import { CarouselModule, FilterPillModule } from '@fabric-msft/fabric-angular';
+import { setTheme, fabricLightTheme } from "@fabric-msft/theme";
+import { ButtonAppearance, ButtonSize } from '@fabric-msft/fabric-web';
+import { CarouselDefinition } from '@fabric-msft/fabric-web';
 
+setTheme(fabricLightTheme);
 interface CarouselItem {
   title: string;
   description: string;
@@ -20,13 +24,13 @@ interface DynamicPill {
   imports: [
     CommonModule,
     FormsModule,
-    FabricWrappersModule,
+    FilterPillModule,
+    CarouselModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './fabric-components-demo.component.html',
   styleUrls: ['./fabric-components-demo.component.scss']
 })
-export class FabricComponentsDemoComponent {
+export class FabricComponentsDemoComponent implements OnInit {
   // Carousel properties
   disableCarouselAnimation = false;
   carouselCurrentIndex = 0;
@@ -39,7 +43,7 @@ export class FabricComponentsDemoComponent {
   ];
   
   // FilterPill test properties
-  pillAppearance: string = 'accent';
+  pillAppearance: string = 'primary';
   pillSize: string = 'medium';
   isPillDisabled: boolean = false;
   isPillPressed: boolean = false;
@@ -94,12 +98,21 @@ export class FabricComponentsDemoComponent {
   }
   
   onPillPressedChange(event: any): void {
-    // The event from the Fabric component might be a custom event with detail
+    // The event from the Fabric component is a CustomEvent with detail
     const isPressed = event?.detail?.pressed ?? event;
-    this.isPillPressed = !!isPressed;
+    
+    console.log('Pill pressed state changed:', isPressed, 'from event:', event);
+    
+    // Update the lastEvent and lastEventDetails regardless of source
     this.lastEvent = 'pressedchange';
-    this.lastEventDetails = event;
-    console.log('Pill pressed state changed:', isPressed);
+    this.lastEventDetails = {
+      pressed: isPressed,
+      originalEvent: event
+    };
+    
+    // For the property binding section, the two-way binding should handle the update
+    // But we need to make sure we're not blocking it with conditional logic
+    this.isPillPressed = !!isPressed;
   }
   
   onPillKeyPress(event: any): void {
@@ -154,5 +167,12 @@ export class FabricComponentsDemoComponent {
       disableCarouselAnimation: this.disableCarouselAnimation,
       carouselItemsCount: this.carouselItems.length
     };
+  }
+
+  ngOnInit() {
+    // Define the Carousel component if it's not already defined
+    if (!customElements.get('fabric-carousel')) {
+      CarouselDefinition.define();
+    }
   }
 } 

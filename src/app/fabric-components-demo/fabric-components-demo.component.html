@@ -1,55 +1,4 @@
 <div class="components-container">
-  <!-- Carousel Component Test -->
-  <h2>Fabric Carousel Component</h2>
-  
-  <!-- Basic usage -->
-  <div class="test-section">
-    <h3>Basic Usage</h3>
-    <fabric-carousel>
-      <div slot="header">Basic Carousel</div>
-      <div class="carousel-item">Item 1</div>
-      <div class="carousel-item">Item 2</div>
-      <div class="carousel-item">Item 3</div>
-      <div class="carousel-item">Item 4</div>
-    </fabric-carousel>
-  </div>
-  
-  <!-- Interactive Carousel -->
-  <div class="test-section">
-    <h3>Interactive Carousel</h3>
-    <fabric-carousel 
-      [disable-animation]="disableCarouselAnimation"
-      [current-index]="carouselCurrentIndex"
-      (change)="onCarouselIndexChange($event)">
-      <div slot="header">
-        <strong>Interactive Carousel</strong>
-        <span class="carousel-info">Current Index: {{ carouselCurrentIndex }}</span>
-      </div>
-      <div class="carousel-item" *ngFor="let item of carouselItems">
-        <div class="carousel-card">
-          <h4>{{ item.title }}</h4>
-          <p>{{ item.description }}</p>
-        </div>
-      </div>
-    </fabric-carousel>
-    
-    <div class="controls">
-      <button (click)="carouselCurrentIndex = carouselCurrentIndex > 0 ? carouselCurrentIndex - 1 : 0">Previous</button>
-      <button (click)="carouselCurrentIndex = carouselCurrentIndex < carouselItems.length - 1 ? carouselCurrentIndex + 1 : carouselCurrentIndex">Next</button>
-      
-      <label>
-        <input type="checkbox" [(ngModel)]="disableCarouselAnimation"> Disable Animation
-      </label>
-      
-      <button (click)="addCarouselItem()">Add Item</button>
-      <button (click)="removeCarouselItem()">Remove Item</button>
-    </div>
-    
-    <div class="carousel-status">
-      <p>Current Index: {{ carouselCurrentIndex }}</p>
-      <p>Total Items: {{ carouselItems.length }}</p>
-    </div>
-  </div>
   
   <h2>Fabric Filter Pill Component</h2>
   
@@ -66,7 +15,7 @@
       [appearance]="pillAppearance" 
       [size]="pillSize"
       [disabled]="isPillDisabled"
-      [pressed]="isPillPressed"
+      [(pressed)]="isPillPressed"
       [ariaLabel]="'Filter by ' + pillLabel">
       {{ pillLabel }}
     </fabric-filter-pill>
@@ -76,6 +25,7 @@
         Appearance:
         <select [(ngModel)]="pillAppearance">
           <option value="primary">Primary</option>
+          <option value="accent">Accent</option>
           <option value="outline">Outline</option>
           <option value="subtle">Subtle</option>
           <option value="transparent">Transparent</option>
@@ -111,7 +61,7 @@
     <h3>Event Handling</h3>
     <fabric-filter-pill 
       (click)="onPillClick($event)"
-      (pressedChange)="onPillPressedChange($event)"
+      (pressedchange)="onPillPressedChange($event)"
       (keypress)="onPillKeyPress($event)">
       Click Me
     </fabric-filter-pill>
@@ -125,10 +75,8 @@
   
   <!-- Two-way binding -->
   <div class="test-section">
-    <h3>Two-way Binding (Simulated)</h3>
-    <fabric-filter-pill 
-      [pressed]="isPillTwoWayPressed"
-      (pressedChange)="onPillPressedChange($event); isPillTwoWayPressed = !isPillTwoWayPressed">
+    <h3>Two-way Binding</h3>
+    <fabric-filter-pill [(pressed)]="isPillTwoWayPressed">
       Toggle Me ({{ isPillTwoWayPressed ? 'Pressed' : 'Not Pressed' }})
     </fabric-filter-pill>
     
@@ -186,5 +134,55 @@
   <div class="status">
     <h3>Component State</h3>
     <pre>{{ getComponentState() | json }}</pre>
+  </div>
+
+  <!-- Carousel Component Section -->
+  <h2>Fabric Carousel Component</h2>
+  
+  <!-- Basic Carousel Usage -->
+  <div class="test-section">
+    <h3>Basic Usage</h3>
+    <fabric-carousel>
+      <div class="carousel-item">Item 1</div>
+      <div class="carousel-item">Item 2</div>
+      <div class="carousel-item">Item 3</div>
+      <div class="carousel-item">Item 4</div>
+    </fabric-carousel>
+  </div>
+  
+  <!-- Interactive Carousel -->
+  <div class="test-section">
+    <h3>Interactive Carousel</h3>
+    
+    <fabric-carousel 
+      [disableAnimation]="disableCarouselAnimation"
+      [currentIndex]="carouselCurrentIndex"
+      (currentIndexChange)="onCarouselIndexChange($event)">
+      
+      <div class="carousel-card" *ngFor="let item of carouselItems">
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.description }}</p>
+      </div>
+      
+    </fabric-carousel>
+    
+    <div class="controls">
+      <button (click)="carouselCurrentIndex = (carouselCurrentIndex > 0) ? carouselCurrentIndex - 1 : 0">Previous</button>
+      <button (click)="carouselCurrentIndex = (carouselCurrentIndex < carouselItems.length - 1) ? carouselCurrentIndex + 1 : carouselCurrentIndex">Next</button>
+      
+      <div class="control-group">
+        <button (click)="addCarouselItem()">Add Item</button>
+        <button (click)="removeCarouselItem()">Remove Item</button>
+      </div>
+      
+      <label>
+        <input type="checkbox" [(ngModel)]="disableCarouselAnimation"> Disable Animation
+      </label>
+    </div>
+    
+    <div class="carousel-status">
+      <p>Current Index: {{ carouselCurrentIndex }}</p>
+      <p>Total Items: {{ carouselItems.length }}</p>
+    </div>
   </div>
 </div> 
